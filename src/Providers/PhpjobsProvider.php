@@ -15,7 +15,6 @@ class PhpjobsProvider extends AbstractProvider
     {
         $job = new Job([
             'description' => $payload['description'],
-            'location' => $payload['location'],
             'name' => $payload['title'],
             'title' => $payload['title'],
             'url' => $payload['link'],
@@ -23,15 +22,6 @@ class PhpjobsProvider extends AbstractProvider
 
         // Set date posted
         $job->setDatePostedAsString($payload['pubDate']);
-
-        // Set skills
-        if (isset($payload['category']) && is_array($payload['category'])) {
-            $skills = [];
-            foreach ($payload['category'] as $category) {
-                $skills[] = $category;
-            }
-            $job->setSkills(implode(', ', $skills));
-        }
 
         return $job;
     }
@@ -46,7 +36,6 @@ class PhpjobsProvider extends AbstractProvider
         return [
             'description',
             'link',
-            'location',
             'pubDate',
             'title',
         ];
