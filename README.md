@@ -29,15 +29,15 @@ Or via the "set" method. All of the parameters documented in Indeed's documentat
 
 ```php
 // Add parameters via the set() method
-$query->set('q', 'engineering');
+$query->set('search_string', 'zend');
 ```
 
 You can even chain them if you'd like.
 
 ```php
 // Add parameters via the set() method
-$query->set('l', 'Chicago, IL')
-    ->set('pg', '2');
+$query->set('country_code', 'us')
+    ->set('search_string', 'laravel');
 ```
  
 Then inject the query object into the provider.
